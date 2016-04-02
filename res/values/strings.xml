@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- App Bar -->
 	<string name="app_name">Chess Vision Plus</string>
+	<!-- Push me button stuff -->
+	<string name="dialog_push_me">You pushed the button! Hurray!</string>
+	<string name="ok">OK</string>
+	<string name="cancel">Cancel</string>
+	<string name="push_me">Push me!</string>
 </resources>
