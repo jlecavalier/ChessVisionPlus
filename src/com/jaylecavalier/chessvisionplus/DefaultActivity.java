@@ -31,12 +31,4 @@ public class DefaultActivity extends SherlockFragmentActivity {
 		// Set the adapter for the board to our custom BoardAdapter class
     	board.setAdapter(new BoardAdapter(this));
 	}
-
-	// Called when the button that says "push me" is clicked
-	public void pushMe(View view) {
-		// Handle for the dialog
-		DialogFragment dialog = new PushMeDialogFragment();
-		// Show the dialog to the user, since the button was pressed.
-		dialog.show(getSupportFragmentManager(), "pushme");
-	}
 }
