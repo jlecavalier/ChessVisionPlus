@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.util.Log;
 
 import com.jaylecavalier.chessvisionplus.R;
 
@@ -21,11 +22,11 @@ public class BoardAdapter extends BaseAdapter {
     }
 
     public Object getItem(int position) {
-        return null;
+        return mThumbIds[position];
     }
 
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     // create a new ImageView for each item referenced by the Adapter
@@ -36,12 +37,32 @@ public class BoardAdapter extends BaseAdapter {
             imageView = new ImageView(mContext);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setAdjustViewBounds(true);
+            final int p = position;
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String coord = itemIdToCoord(getItemId(p));
+                    Log.d("HEY THERE:", coord);
+                }
+            });
         } else {
             imageView = (ImageView) convertView;
         }
 
         imageView.setImageResource(mThumbIds[position]);
         return imageView;
+    }
+
+    private String itemIdToCoord(long id) {
+        // 97 is "a" in ascii, so we add the offset
+        // to 97 to find the appropriate ascii letter for
+        // the square we are looking at.
+        int ascii = (int) ((id % 8) + 97);
+        String letter = Character.toString((char) ascii);
+        // The number of the square can be found by rounding down
+        // the result of dividing by 8
+        String number = Integer.toString((int) (8 - Math.floor(id / 8)));
+        return letter + number;
     }
 
     // references to our images
