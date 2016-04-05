@@ -53,6 +53,11 @@ public class BoardAdapter extends BaseAdapter {
         return imageView;
     }
 
+    // The items in our adapter are the squares of the board, and
+    // each square has its own algebraic coordinate. This function
+    // converts the integer id of a given square into that algebraic
+    // coordinate, which must be given as a string since it contains
+    // both letters and numbers.
     private String itemIdToCoord(long id) {
         // 97 is "a" in ascii, so we add the offset
         // to 97 to find the appropriate ascii letter for
@@ -65,7 +70,7 @@ public class BoardAdapter extends BaseAdapter {
         return letter + number;
     }
 
-    // references to our images
+    // references to the images that make up the board, in order
     private Integer[] mThumbIds = {
             R.drawable.lightsquare, R.drawable.darksquare,
             R.drawable.lightsquare, R.drawable.darksquare,
