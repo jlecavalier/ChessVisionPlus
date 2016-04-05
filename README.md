@@ -5,7 +5,7 @@ App for Android that improves your ability to notice different moves on the ches
 This app is under heavy construction. It's coming along nicely though! I have a lot of motivation to finish this project because I actually want to use it in my day to day life for improving my chess.
 
 # What it does so far
-Thus far, the app generates a chessboard and generates the correct ID for each square on the board using the standard algebraic chess notation. You can tap on a square, and the app will send the algebraic ID to the debug log. That's about it.
+Thus far, the app generates a chessboard and generates the correct ID for each square on the board using the standard algebraic chess notation. You can tap on a square, and the app will tell you which square you tapped most recently on the screen
 
 # Future plans
 The reason this app is called ChessVisionPlus is because I wanted to create an app that improves the way you look at the chess board. I wanted to be able to know the correct name of each square on the board without even having to think about it at all, and also be able to see all the squares my pieces can move to without having to think about it at all.

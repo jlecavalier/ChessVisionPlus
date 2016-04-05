@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.jaylecavalier.chessvisionplus.R;
 
@@ -33,22 +34,39 @@ public class BoardAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
         if (convertView == null) {
+
+            // These need to be final in order for us to use them
+            // with our new OnClickListener we will potentially create
+            final int f_position = position;
+            final ViewGroup f_parent = parent;
+
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setAdjustViewBounds(true);
-            final int p = position;
+
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String coord = itemIdToCoord(getItemId(p));
-                    Log.d("HEY THERE:", coord);
+                    // If we are in the default activity
+                    if(mContext instanceof DefaultActivity){
+                        // Convert the id of the tapped square into the
+                        // name of the square as a string
+                        String coord = itemIdToCoord(getItemId(f_position));
+                        // Update the square name text to show the user
+                        // which square was tapped last.
+                        ((DefaultActivity) mContext).updateSquareName(coord);
+                    }
+                    //Log.d("Square Tapped: ", coord);
                 }
             });
+
+        // If it is recycled, then just use the view we've already created
         } else {
             imageView = (ImageView) convertView;
         }
 
+        // Get the correct square image
         imageView.setImageResource(mThumbIds[position]);
         return imageView;
     }

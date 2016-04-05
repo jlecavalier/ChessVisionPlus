@@ -2,4 +2,6 @@
 <resources>
 	<!-- App Bar -->
 	<string name="app_name">Chess Vision Plus</string>
+	<!-- TextView above the board -->
+	<string name="last_square">Last square tapped: </string>
 </resources>
