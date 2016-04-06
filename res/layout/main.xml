@@ -39,4 +39,15 @@
 		 android:paddingTop="150px"
 		 android:layout_centerInParent="true"
 		 android:layout_below="@id/board" />
+	<Button
+		 xmlns:android="http://schemas.android.com/apk/res/android"
+		 android:id="@+id/next_problem"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:text="@string/next_problem"
+		 android:onClick="nextProblem"
+		 android:layout_below="@id/answer"
+		 android:visibility="gone"
+		 android:layout_centerInParent="true"
+		 android:clickable="false" />
 </RelativeLayout>

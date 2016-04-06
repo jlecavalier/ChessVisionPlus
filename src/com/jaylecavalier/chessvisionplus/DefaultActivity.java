@@ -7,7 +7,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.support.v4.app.DialogFragment;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Color;
 
@@ -96,14 +98,45 @@ public class DefaultActivity extends SherlockFragmentActivity {
     		answer.setText(R.string.correct);
     		// Green
     		answer.setTextColor(Color.rgb(42,162,42));
+    		pickSquare((GridView) findViewById(R.id.board));
     	}
     	// User tapped an incorrect square
     	else {
     		answer.setText(R.string.incorrect);
+    		incorrectAnswer(tapped, target);
     		// Red
     		answer.setTextColor(Color.rgb(255,26,26));
     	}
-    	// Pick another square
-    	pickSquare((GridView) findViewById(R.id.board));
     }
+
+	// Makes the "Next Problem" button visible and clickable
+	private void incorrectAnswer(String tapped, String target) {
+		Button nextProblemButton = (Button) findViewById(R.id.next_problem);
+		nextProblemButton.setVisibility(View.VISIBLE);
+		nextProblemButton.setClickable(true);
+		// Make board unclickable
+		GridView board = (GridView) findViewById(R.id.board);
+		for(int i=0; i<board.getChildCount(); i++) {
+			ImageView child = (ImageView) board.getChildAt(i);
+			child.setClickable(false);
+		}
+	}
+
+	// Called when the "Next Problem" button is clicked
+	// Makes the "Next Problem" button invisible and begins 
+	// the next problem
+	public void nextProblem(View view) {
+		Button nextProblemButton = (Button) findViewById(R.id.next_problem);
+		nextProblemButton.setVisibility(View.GONE);
+		nextProblemButton.setClickable(false);
+		TextView answer = (TextView) findViewById(R.id.answer);
+		answer.setText("");
+		pickSquare((GridView) findViewById(R.id.board));
+		// Make board clickable again
+		GridView board = (GridView) findViewById(R.id.board);
+		for(int i=0; i<board.getChildCount(); i++) {
+			ImageView child = (ImageView) board.getChildAt(i);
+			child.setClickable(true);
+		}
+	}
 }

@@ -2,9 +2,10 @@
 <resources>
 	<!-- App Bar -->
 	<string name="app_name">Chess Vision Plus</string>
-	<!-- TextView above the board -->
+	<!-- above the board -->
 	<string name="tap">Tap: </string>
-	<!-- TextView beneath the board -->
+	<!-- beneath the board -->
 	<string name="correct">CORRECT</string>
 	<string name="incorrect">INCORRECT</string>
+	<string name="next_problem">Next Problem</string>
 </resources>
