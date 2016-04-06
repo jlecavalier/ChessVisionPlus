@@ -53,9 +53,8 @@ public class BoardAdapter extends BaseAdapter {
                         // Convert the id of the tapped square into the
                         // name of the square as a string
                         String coord = itemIdToCoord(getItemId(f_position));
-                        // Update the square name text to show the user
-                        // which square was tapped last.
-                        ((DefaultActivity) mContext).updateSquareName(coord);
+                        // Tell the user whether or not she guessed correctly
+                        ((DefaultActivity) mContext).checkIfCorrect(coord);
                     }
                     //Log.d("Square Tapped: ", coord);
                 }
@@ -76,7 +75,7 @@ public class BoardAdapter extends BaseAdapter {
     // converts the integer id of a given square into that algebraic
     // coordinate, which must be given as a string since it contains
     // both letters and numbers.
-    private String itemIdToCoord(long id) {
+    public String itemIdToCoord(long id) {
         // 97 is "a" in ascii, so we add the offset
         // to 97 to find the appropriate ascii letter for
         // the square we are looking at.

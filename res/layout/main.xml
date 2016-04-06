@@ -4,23 +4,23 @@
 			  android:layout_height="fill_parent">
 	<TextView
 		 xmlns:android="http://schemas.android.com/apk/res/android"
-		 android:id="@+id/last_square_tapped"
+		 android:id="@+id/tap"
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"
-		 android:textSize="36sp"
+		 android:textSize="48sp"
 		 android:paddingTop="25px"
 		 android:paddingBottom="25px"
-		 android:text="@string/last_square" />
+		 android:text="@string/tap" />
 	<TextView
 		 xmlns:android="http://schemas.android.com/apk/res/android"
 		 android:id="@+id/square_name"
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"
-		 android:textSize="36sp"
+		 android:textSize="48sp"
 		 android:paddingTop="25px"
 		 android:paddingBottom="25px"
 		 android:paddingLeft="25px"
-		 android:layout_toRightOf="@id/last_square_tapped" />
+		 android:layout_toRightOf="@id/tap" />
     <GridView
     	 xmlns:android="http://schemas.android.com/apk/res/android"
     	 android:id="@+id/board"
@@ -29,5 +29,14 @@
     	 android:horizontalSpacing="0dp"
     	 android:stretchMode="columnWidth"
     	 android:numColumns="8"
-		 android:layout_below="@id/last_square_tapped" />
+		 android:layout_below="@id/tap" />
+	<TextView
+		 xmlns:android="http://schemas.android.com/apk/res/android"
+		 android:id="@+id/answer"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:textSize="48sp"
+		 android:paddingTop="150px"
+		 android:layout_centerInParent="true"
+		 android:layout_below="@id/board" />
 </RelativeLayout>

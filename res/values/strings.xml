@@ -3,5 +3,8 @@
 	<!-- App Bar -->
 	<string name="app_name">Chess Vision Plus</string>
 	<!-- TextView above the board -->
-	<string name="last_square">Last square tapped: </string>
+	<string name="tap">Tap: </string>
+	<!-- TextView beneath the board -->
+	<string name="correct">CORRECT</string>
+	<string name="incorrect">INCORRECT</string>
 </resources>
