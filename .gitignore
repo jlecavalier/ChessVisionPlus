@@ -3,3 +3,5 @@ build/**
 .gradle/*
 .gradle/**
 .idea/workspace.xml
+log/*
+log/**
