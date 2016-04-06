@@ -9,6 +9,7 @@ import android.view.View;
 import android.support.v4.app.DialogFragment;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.graphics.Color;
 
 // ActionBarSherlock stuff
 import com.actionbarsherlock.app.ActionBar;
@@ -93,10 +94,14 @@ public class DefaultActivity extends SherlockFragmentActivity {
     	// User tapped the correct square
     	if (tapped.equals(target)) {
     		answer.setText(R.string.correct);
+    		// Green
+    		answer.setTextColor(Color.rgb(42,162,42));
     	}
     	// User tapped an incorrect square
     	else {
     		answer.setText(R.string.incorrect);
+    		// Red
+    		answer.setTextColor(Color.rgb(255,26,26));
     	}
     	// Pick another square
     	pickSquare((GridView) findViewById(R.id.board));
