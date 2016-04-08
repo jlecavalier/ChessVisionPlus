@@ -5,11 +5,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.support.v4.app.DialogFragment;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.graphics.Color;
 
@@ -86,7 +91,7 @@ public class DefaultActivity extends SherlockFragmentActivity {
     }
 
     // Tells the user whether or not he tapped the correct square
-    public void checkIfCorrect(String tapped) {
+    public void checkIfCorrect(String tapped, ImageView tapped_square) {
     	// handle to target square view
     	TextView square_name = (TextView) findViewById(R.id.square_name);
     	// handle to "answer" text
@@ -103,14 +108,14 @@ public class DefaultActivity extends SherlockFragmentActivity {
     	// User tapped an incorrect square
     	else {
     		answer.setText(R.string.incorrect);
-    		incorrectAnswer(tapped, target);
+    		incorrectAnswer(tapped, target, tapped_square);
     		// Red
     		answer.setTextColor(Color.rgb(255,26,26));
     	}
     }
 
 	// Makes the "Next Problem" button visible and clickable
-	private void incorrectAnswer(String tapped, String target) {
+	private void incorrectAnswer(String tapped, String target, ImageView tapped_square) {
 		Button nextProblemButton = (Button) findViewById(R.id.next_problem);
 		nextProblemButton.setVisibility(View.VISIBLE);
 		nextProblemButton.setClickable(true);
@@ -120,6 +125,21 @@ public class DefaultActivity extends SherlockFragmentActivity {
 			ImageView child = (ImageView) board.getChildAt(i);
 			child.setClickable(false);
 		}
+		displayCorrectAnswer(tapped, target, tapped_square);
+	}
+
+	private void displayCorrectAnswer(String tapped, String target, ImageView tapped_square) {
+		int location[] = new int[2];
+		tapped_square.getLocationInWindow(location);
+		tapped_square.setImageResource(R.drawable.redsquare);
+		TextView incorrectText = (TextView) findViewById(R.id.incorrect_square);
+		RelativeLayout.LayoutParams incorrectParams = (RelativeLayout.LayoutParams) incorrectText.getLayoutParams();
+		incorrectText.setText(tapped);
+		incorrectParams.bottomMargin = 0;
+		incorrectParams.topMargin = location[1] - 315;
+		incorrectParams.leftMargin = location[0] + 25;
+		incorrectParams.rightMargin = 0;
+		incorrectText.setVisibility(View.VISIBLE);
 	}
 
 	// Called when the "Next Problem" button is clicked
@@ -132,6 +152,8 @@ public class DefaultActivity extends SherlockFragmentActivity {
 		TextView answer = (TextView) findViewById(R.id.answer);
 		answer.setText("");
 		pickSquare((GridView) findViewById(R.id.board));
+		TextView incorrectText = (TextView) findViewById(R.id.incorrect_square);
+		incorrectText.setVisibility(View.GONE);
 		// Make board clickable again
 		GridView board = (GridView) findViewById(R.id.board);
 		for(int i=0; i<board.getChildCount(); i++) {

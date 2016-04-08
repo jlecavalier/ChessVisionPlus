@@ -45,6 +45,8 @@ public class BoardAdapter extends BaseAdapter {
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setAdjustViewBounds(true);
 
+            final ImageView f_imageView = imageView;
+
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -54,7 +56,7 @@ public class BoardAdapter extends BaseAdapter {
                         // name of the square as a string
                         String coord = itemIdToCoord(getItemId(f_position));
                         // Tell the user whether or not she guessed correctly
-                        ((DefaultActivity) mContext).checkIfCorrect(coord);
+                        ((DefaultActivity) mContext).checkIfCorrect(coord, f_imageView);
                     }
                     //Log.d("Square Tapped: ", coord);
                 }

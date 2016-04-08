@@ -50,4 +50,16 @@
 		 android:visibility="gone"
 		 android:layout_centerInParent="true"
 		 android:clickable="false" />
+	<TextView
+		 android:id="@+id/correct_square"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:textSize="36sp"
+		 android:visibility="gone" />
+	<TextView
+		 android:id="@+id/incorrect_square"
+		 android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:textSize="36sp"
+		 android:visibility="gone" />
 </RelativeLayout>
