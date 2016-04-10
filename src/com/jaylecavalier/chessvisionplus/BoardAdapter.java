@@ -30,6 +30,10 @@ public class BoardAdapter extends BaseAdapter {
         return position;
     }
 
+    public int getImage(int position) {
+        return mThumbIds[position];
+    }
+
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
@@ -56,7 +60,7 @@ public class BoardAdapter extends BaseAdapter {
                         // name of the square as a string
                         String coord = itemIdToCoord(getItemId(f_position));
                         // Tell the user whether or not she guessed correctly
-                        ((DefaultActivity) mContext).checkIfCorrect(coord, f_imageView);
+                        ((DefaultActivity) mContext).checkIfCorrect(coord, f_imageView, f_position);
                     }
                     //Log.d("Square Tapped: ", coord);
                 }
