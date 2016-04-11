@@ -3,6 +3,7 @@ package com.jaylecavalier.chessvisionplus;
 // Android stuff
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,9 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 // Java standard library stuff
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.Random;
 
 // My stuff
@@ -47,7 +51,10 @@ public class DefaultActivity extends SherlockFragmentActivity {
 		GridView board = (GridView) findViewById(R.id.board);
 		// Set the adapter for the board to our custom BoardAdapter class
     	board.setAdapter(new BoardAdapter(this));
-
+        // Find and set the user's best score
+        updateBestScore(this);
+        // Initialize the user's current score
+        initializeCurrentScore();
     	// Start the game by picking a square for the user
     	pickSquare(board);
     }
@@ -170,4 +177,35 @@ public class DefaultActivity extends SherlockFragmentActivity {
 			child.setClickable(true);
 		}
 	}
+
+    private void updateBestScore(Context ctx) {
+        try {
+            String best_score_string = "";
+            File f = new File(ctx.getFilesDir(), "user_best_score.dat");
+            if (!f.exists()) {
+                f.createNewFile();
+                FileOutputStream outStream = new FileOutputStream(f);
+                outStream.write(0);
+                outStream.close();
+            }
+            FileInputStream inStream = new FileInputStream(f);
+            int curr_byte;
+            do {
+                curr_byte = inStream.read();
+                if (curr_byte != -1) {
+                    best_score_string = best_score_string + Integer.toString(curr_byte);
+                }
+            } while (curr_byte != -1);
+            inStream.close();
+            TextView bestScore = (TextView) findViewById(R.id.best_score);
+            bestScore.setText(best_score_string);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initializeCurrentScore() {
+        TextView currentScore = (TextView) findViewById(R.id.current_score);
+        currentScore.setText("0");
+    }
 }

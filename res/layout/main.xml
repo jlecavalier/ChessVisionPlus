@@ -21,6 +21,24 @@
 		 android:paddingBottom="25px"
 		 android:paddingLeft="25px"
 		 android:layout_toRightOf="@id/tap" />
+	<TextView
+		 android:id="@+id/current_score"
+		 android:layout_height="wrap_content"
+		 android:layout_width="wrap_content"
+		 android:textSize="36sp"
+		 android:paddingTop="25px"
+		 android:paddingBottom="25px"
+		 android:paddingLeft="50px"
+		 android:layout_toRightOf="@id/square_name" />
+	<TextView
+		 android:id="@+id/best_score"
+		 android:layout_height="wrap_content"
+		 android:layout_width="wrap_content"
+		 android:textSize="36sp"
+		 android:paddingTop="25px"
+		 android:paddingBottom="25px"
+		 android:paddingLeft="50px"
+		 android:layout_toRightOf="@id/current_score" />
     <GridView
     	 xmlns:android="http://schemas.android.com/apk/res/android"
     	 android:id="@+id/board"
@@ -29,7 +47,9 @@
     	 android:horizontalSpacing="0dp"
     	 android:stretchMode="columnWidth"
     	 android:numColumns="8"
-		 android:layout_below="@id/tap" />
+		 android:layout_below="@id/tap"
+		 android:splitMotionEvents="false"
+		 android:windowEnableSplitTouch="false" />
 	<TextView
 		 xmlns:android="http://schemas.android.com/apk/res/android"
 		 android:id="@+id/answer"
