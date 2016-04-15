@@ -28,4 +28,11 @@ public class MainMenuActivity extends SherlockFragmentActivity {
 		startActivity(squareNamesActivity);
 	}
 
+	public void startSettings(View view) {
+		// Start an intent for the settings menu
+		Intent settingsMenuActivity = new Intent(getApplicationContext(), SettingsMenuActivity.class);
+		// Start the settings menu
+		startActivity(settingsMenuActivity);
+	}
+
 }

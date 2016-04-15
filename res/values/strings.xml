@@ -10,4 +10,5 @@
 	<string name="next_problem">Next Problem</string>
 	<!-- main menu stuff -->
 	<string name="square_names">Name the Square</string>
+	<string name="settings">Settings</string>
 </resources>

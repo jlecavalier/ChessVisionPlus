@@ -18,5 +18,6 @@
 		  	</intent-filter>
 		</activity>
 		<activity android:name="com.jaylecavalier.chessvisionplus.SquareNamesActivity"></activity>
+		<activity android:name="com.jaylecavalier.chessvisionplus.SettingsMenuActivity"></activity>
 	</application>
 </manifest>
