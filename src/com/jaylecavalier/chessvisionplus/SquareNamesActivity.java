@@ -34,7 +34,7 @@ import java.util.Random;
 import com.jaylecavalier.chessvisionplus.R;
 import com.jaylecavalier.chessvisionplus.BoardAdapter;
 
-public class DefaultActivity extends SherlockFragmentActivity {
+public class SquareNamesActivity extends SherlockFragmentActivity {
 
     private int red_pos;
     private int green_pos;
@@ -47,7 +47,7 @@ public class DefaultActivity extends SherlockFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.squarenames);
 
 		// Get the gridview containing the board
 		GridView board = (GridView) findViewById(R.id.board);

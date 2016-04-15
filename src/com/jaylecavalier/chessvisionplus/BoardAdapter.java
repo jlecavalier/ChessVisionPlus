@@ -55,12 +55,12 @@ public class BoardAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
                     // If we are in the default activity
-                    if(mContext instanceof DefaultActivity){
+                    if(mContext instanceof SquareNamesActivity){
                         // Convert the id of the tapped square into the
                         // name of the square as a string
                         String coord = itemIdToCoord(getItemId(f_position));
                         // Tell the user whether or not she guessed correctly
-                        ((DefaultActivity) mContext).checkIfCorrect(coord, f_imageView, f_position);
+                        ((SquareNamesActivity) mContext).checkIfCorrect(coord, f_imageView, f_position);
                     }
                     //Log.d("Square Tapped: ", coord);
                 }

@@ -8,4 +8,6 @@
 	<string name="correct">CORRECT</string>
 	<string name="incorrect">INCORRECT</string>
 	<string name="next_problem">Next Problem</string>
+	<!-- main menu stuff -->
+	<string name="square_names">Name the Square</string>
 </resources>
