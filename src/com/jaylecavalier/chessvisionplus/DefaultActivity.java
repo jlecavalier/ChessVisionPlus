@@ -38,6 +38,8 @@ public class DefaultActivity extends SherlockFragmentActivity {
 
     private int red_pos;
     private int green_pos;
+    private Boolean new_high_score;
+    private int current_high_score;
 
 	/**
 	 * Called when the activity is first created.
@@ -57,6 +59,12 @@ public class DefaultActivity extends SherlockFragmentActivity {
         initializeCurrentScore();
     	// Start the game by picking a square for the user
     	pickSquare(board);
+    }
+
+    @Override
+    public void onStop() {
+        writeHighScore(new_high_score, this);
+        super.onStop();
     }
 
     // Sets the fonts of all the text on the screen to the custom Ubuntu font
@@ -112,6 +120,7 @@ public class DefaultActivity extends SherlockFragmentActivity {
     	String target = square_name.getText().toString();
     	// User tapped the correct square
     	if (tapped.equals(target)) {
+            updateCurrentScore(true);
     		answer.setText(R.string.correct);
     		// Green
     		answer.setTextColor(Color.rgb(42,162,42));
@@ -119,6 +128,7 @@ public class DefaultActivity extends SherlockFragmentActivity {
     	}
     	// User tapped an incorrect square
     	else {
+            updateCurrentScore(false);
     		answer.setText(R.string.incorrect);
     		incorrectAnswer(tapped, target, tapped_square, tapped_position);
     		// Red
@@ -199,6 +209,8 @@ public class DefaultActivity extends SherlockFragmentActivity {
             inStream.close();
             TextView bestScore = (TextView) findViewById(R.id.best_score);
             bestScore.setText(best_score_string);
+            current_high_score = Integer.parseInt(best_score_string);
+            new_high_score = false;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -207,5 +219,38 @@ public class DefaultActivity extends SherlockFragmentActivity {
     private void initializeCurrentScore() {
         TextView currentScore = (TextView) findViewById(R.id.current_score);
         currentScore.setText("0");
+    }
+
+    private void updateCurrentScore(Boolean isCorrect) {
+        TextView currentScore = (TextView) findViewById(R.id.current_score);
+        if (isCorrect) {
+            int  newScore = Integer.parseInt(currentScore.getText().toString());
+            newScore = newScore + 1;
+            if (newScore > current_high_score) {
+                current_high_score = newScore;
+                TextView bestScore = (TextView) findViewById(R.id.best_score);
+                bestScore.setText(Integer.toString(newScore));
+                new_high_score = true;
+            }
+            currentScore.setText(Integer.toString(newScore));
+        } else {
+            currentScore.setText("0");
+        }
+    }
+
+    private void writeHighScore(Boolean isNew, Context ctx) {
+        if (isNew) {
+            try {
+                File f = new File(ctx.getFilesDir(), "user_best_score.dat");
+                if (!f.exists()) {
+                    f.createNewFile();
+                }
+                FileOutputStream outStream = new FileOutputStream(f);
+                outStream.write(current_high_score);
+                outStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
