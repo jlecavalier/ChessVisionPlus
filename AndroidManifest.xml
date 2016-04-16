@@ -19,5 +19,6 @@
 		</activity>
 		<activity android:name="com.jaylecavalier.chessvisionplus.SquareNamesActivity"></activity>
 		<activity android:name="com.jaylecavalier.chessvisionplus.SettingsMenuActivity"></activity>
+		<activity android:name="com.jaylecavalier.chessvisionplus.SquareNamesSettingsActivity"></activity>
 	</application>
 </manifest>

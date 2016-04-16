@@ -11,4 +11,7 @@
 	<!-- main menu stuff -->
 	<string name="square_names">Name the Square</string>
 	<string name="settings">Settings</string>
+	<string name="square_names_settings">"Name the Square" Settings</string>
+	<!-- Name the Square setting stuff -->
+	<string name="clear_scores">Clear High Score</string>
 </resources>
