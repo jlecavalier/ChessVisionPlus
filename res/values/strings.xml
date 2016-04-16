@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<!-- Misc -->
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
 	<!-- App Bar -->
 	<string name="app_name">Chess Vision Plus</string>
 	<!-- above the board -->
@@ -14,4 +17,6 @@
 	<string name="square_names_settings">"Name the Square" Settings</string>
 	<!-- Name the Square setting stuff -->
 	<string name="clear_scores">Clear High Score</string>
+	<string name="clear_scores_title">Clearing High Scores</string>
+	<string name="clear_scores_message">Are you sure you want to clear your high scores for "Name the Square"? It can\'t be undone.</string>
 </resources>

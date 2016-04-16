@@ -7,5 +7,6 @@
 		 android:id="@+id/square_names_settings_button"
 		 android:layout_width="fill_parent"
 		 android:layout_height="wrap_content"
-		 android:text="@string/square_names_settings" /> 
+		 android:text="@string/square_names_settings"
+		 android:onClick="startSquareNamesSettings" /> 
 </RelativeLayout>
