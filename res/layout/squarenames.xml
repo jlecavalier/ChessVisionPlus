@@ -22,6 +22,15 @@
 		 android:paddingLeft="25px"
 		 android:layout_toRightOf="@id/tap" />
 	<TextView
+		 android:id="@+id/bar_1"
+		 android:layout_height="wrap_content"
+		 android:layout_width="wrap_content"
+		 android:textSize="48sp"
+		 android:paddingTop="25px"
+		 android:paddingLeft="25px"
+		 android:layout_toRightOf="@id/square_name"
+		 android:text="@string/bar" />
+	<TextView
 		 android:id="@+id/current_score"
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"

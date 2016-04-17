@@ -17,8 +17,26 @@
 		  		<category android:name="android.intent.category.LAUNCHER"/>
 		  	</intent-filter>
 		</activity>
-		<activity android:name="com.jaylecavalier.chessvisionplus.SquareNamesActivity"></activity>
-		<activity android:name="com.jaylecavalier.chessvisionplus.SettingsMenuActivity"></activity>
-		<activity android:name="com.jaylecavalier.chessvisionplus.SquareNamesSettingsActivity"></activity>
+		<activity
+			 android:name="com.jaylecavalier.chessvisionplus.SquareNamesActivity"
+			 android:parentActivityName="com.jaylecavalier.chessvisionplus.MainMenuActivity">
+			 <meta-data
+            	 android:name="android.support.PARENT_ACTIVITY"
+            	 android:value="com.jaylecavalier.chessvisionplus.MainMenuActivity"/>
+        </activity>
+		<activity
+			 android:name="com.jaylecavalier.chessvisionplus.SettingsMenuActivity"
+			 android:parentActivityName="com.jaylecavalier.chessvisionplus.MainMenuActivity">
+			 <meta-data
+            	 android:name="android.support.PARENT_ACTIVITY"
+            	 android:value="com.jaylecavalier.chessvisionplus.MainMenuActivity"/>
+        </activity>
+		<activity 
+			 android:name="com.jaylecavalier.chessvisionplus.SquareNamesSettingsActivity"
+			 android:parentActivityName="com.jaylecavalier.chessvisionplus.SettingsMenuActivity">
+			 <meta-data
+            	 android:name="android.support.PARENT_ACTIVITY"
+            	 android:value="com.jaylecavalier.chessvisionplus.SettingsMenuActivity"/>
+        </activity>
 	</application>
 </manifest>

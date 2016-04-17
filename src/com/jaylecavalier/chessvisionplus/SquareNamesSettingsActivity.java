@@ -5,11 +5,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NavUtils;
 import android.view.View;
 
 // ActionBarSherlock stuff
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
 
 // Java standard library stuff
 import java.io.File;
@@ -23,7 +25,25 @@ public class SquareNamesSettingsActivity extends SherlockFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.squarenamessettings);
+		setupActionBar();
 	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+    		// Respond to the action bar's Up/Home button
+    		case android.R.id.home:
+        		NavUtils.navigateUpFromSameTask(this);
+        		return true;
+    	}
+    	return super.onOptionsItemSelected(item);
+	}
+
+	private void setupActionBar() {
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle(R.string.square_names_settings);
+    }
 
 	public void clearScores(View view) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);

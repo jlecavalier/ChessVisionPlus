@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NavUtils;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -23,6 +24,7 @@ import android.graphics.drawable.Drawable;
 // ActionBarSherlock stuff
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
 
 // Java standard library stuff
 import java.io.File;
@@ -48,6 +50,7 @@ public class SquareNamesActivity extends SherlockFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.squarenames);
+        setupActionBar();
 
 		// Get the gridview containing the board
 		GridView board = (GridView) findViewById(R.id.board);
@@ -62,9 +65,26 @@ public class SquareNamesActivity extends SherlockFragmentActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onStop() {
         writeHighScore(new_high_score, this);
         super.onStop();
+    }
+
+    private void setupActionBar() {
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle(R.string.square_names);
     }
 
     // Sets the fonts of all the text on the screen to the custom Ubuntu font
