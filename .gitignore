@@ -5,3 +5,4 @@ build/**
 .idea/workspace.xml
 log/*
 log/**
+/.nb-gradle/
