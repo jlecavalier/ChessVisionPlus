@@ -8,6 +8,8 @@
 	<string name="app_name">Chess Vision Plus</string>
 	<!-- above the board -->
 	<string name="tap">Tap: </string>
+        <string name="current">Current: </string>
+        <string name="best">Best: </string>
 	<!-- beneath the board -->
 	<string name="correct">CORRECT</string>
 	<string name="incorrect">INCORRECT</string>
