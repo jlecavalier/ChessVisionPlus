@@ -8,8 +8,8 @@
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"
 		 android:textSize="48sp"
-		 android:paddingTop="25px"
-		 android:paddingBottom="25px"
+		 android:paddingTop="5dp"
+		 android:paddingBottom="5dp"
 		 android:text="@string/tap" />
 	<TextView
 		 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,37 +17,59 @@
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"
 		 android:textSize="48sp"
-		 android:paddingTop="25px"
-		 android:paddingBottom="25px"
-		 android:paddingLeft="25px"
+		 android:paddingTop="5dp"
+		 android:paddingBottom="5dp"
+		 android:paddingLeft="5dp"
 		 android:layout_toRightOf="@id/tap" />
 	<TextView
 		 android:id="@+id/bar_1"
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"
 		 android:textSize="48sp"
-		 android:paddingTop="25px"
-		 android:paddingLeft="25px"
+		 android:paddingTop="4dp"
+		 android:paddingLeft="5dp"
 		 android:layout_toRightOf="@id/square_name"
 		 android:text="@string/bar" />
+        <TextView
+                android:id="@+id/current_score_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="28sp"
+                android:paddingTop="4dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="0dp"
+                android:layout_toRightOf="@id/bar_1"
+                android:text="@string/current"/>
 	<TextView
 		 android:id="@+id/current_score"
 		 android:layout_height="wrap_content"
 		 android:layout_width="wrap_content"
-		 android:textSize="36sp"
-		 android:paddingTop="25px"
-		 android:paddingBottom="25px"
-		 android:paddingLeft="50px"
-		 android:layout_toRightOf="@id/square_name" />
+		 android:textSize="28sp"
+		 android:paddingTop="4dp"
+		 android:paddingLeft="5dp"
+                 android:paddingBottom="0dp"
+		 android:layout_toRightOf="@id/current_score_label" />
+        <TextView
+                android:id="@+id/best_score_label"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="28sp"
+                android:paddingTop="0dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="2dp"
+                android:layout_toRightOf="@id/bar_1"
+                android:layout_below="@id/current_score_label"
+                android:text="@string/best" />
 	<TextView
-		 android:id="@+id/best_score"
-		 android:layout_height="wrap_content"
-		 android:layout_width="wrap_content"
-		 android:textSize="36sp"
-		 android:paddingTop="25px"
-		 android:paddingBottom="25px"
-		 android:paddingLeft="50px"
-		 android:layout_toRightOf="@id/current_score" />
+		android:id="@+id/best_score"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:textSize="28sp"
+		android:paddingTop="0dp"
+		android:paddingLeft="5dp"
+                android:paddingBottom="2dp"
+		android:layout_toRightOf="@id/best_score_label"
+                android:layout_below="@id/current_score" />
     <GridView
     	 xmlns:android="http://schemas.android.com/apk/res/android"
     	 android:id="@+id/board"
@@ -65,7 +87,7 @@
 		 android:layout_width="wrap_content"
 		 android:layout_height="wrap_content"
 		 android:textSize="48sp"
-		 android:paddingTop="150px"
+		 android:paddingTop="150dp"
 		 android:layout_centerInParent="true"
 		 android:layout_below="@id/board" />
 	<Button
