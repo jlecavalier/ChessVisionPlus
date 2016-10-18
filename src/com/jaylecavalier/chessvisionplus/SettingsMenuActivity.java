@@ -17,34 +17,34 @@ import com.jaylecavalier.chessvisionplus.R;
 
 public class SettingsMenuActivity extends SherlockFragmentActivity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.settingsmenu);
-		setupActionBar();
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.settingsmenu);
+	setupActionBar();
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-    		// Respond to the action bar's Up/Home button
-    		case android.R.id.home:
-        		NavUtils.navigateUpFromSameTask(this);
-        		return true;
-    	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
     	return super.onOptionsItemSelected(item);
-	}
+    }
 
-	private void setupActionBar() {
+    private void setupActionBar() {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(R.string.settings);
     }
 
-	public void startSquareNamesSettings(View view) {
-		// Start an intent for the square names settings
-		Intent squareNamesSettings = new Intent(getApplicationContext(), SquareNamesSettingsActivity.class);
-		// Start the square names settings
-		startActivity(squareNamesSettings);
-	}
+    public void startSquareNamesSettings(View view) {
+	// Start an intent for the square names settings
+	Intent squareNamesSettings = new Intent(getApplicationContext(), SquareNamesSettingsActivity.class);
+	// Start the square names settings
+	startActivity(squareNamesSettings);
+    }
 }
