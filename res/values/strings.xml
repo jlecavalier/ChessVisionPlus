@@ -4,6 +4,7 @@
 	<string name="yes">Yes</string>
 	<string name="no">No</string>
 	<string name="bar">|</string>
+        <string name="ok">Ok</string>
 	<!-- App Bar -->
 	<string name="app_name">Chess Vision Plus</string>
 	<!-- above the board -->
@@ -22,4 +23,6 @@
 	<string name="clear_scores">Clear High Score</string>
 	<string name="clear_scores_title">Clearing High Scores</string>
 	<string name="clear_scores_message">Are you sure you want to clear your high scores for \"Name the Square\"? It can\'t be undone.</string>
+        <string name="clear_scores_confirm_title">Done</string>
+        <string name="clear_scores_confirm">Scores cleared successfully</string>
 </resources>
