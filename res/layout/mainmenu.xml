@@ -9,6 +9,12 @@
 		 android:layout_width="fill_parent"
 		 android:text="@string/square_names"
 		 android:onClick="startSquareNames" />
+        <Button
+            android:id="@+id/basic_knight_sight_button"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="@string/basic_knight_sight"
+            android:onClick="startBasicKnightSight" />
 	<Button
 		 android:id="@+id/settings_button"
 		 android:layout_height="wrap_content"

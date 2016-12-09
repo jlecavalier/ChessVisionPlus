@@ -38,5 +38,12 @@
             	 android:name="android.support.PARENT_ACTIVITY"
             	 android:value="com.jaylecavalier.chessvisionplus.SettingsMenuActivity"/>
         </activity>
+        <activity
+            android:name="com.jaylecavalier.chessvisionplus.BasicKnightSightActivity"
+            android:parentActivityName="com.jaylecavalier.chessvisionplus.MainMenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jaylecavalier.chessvisionplus.MainMenuActivity"/>
+        </activity>
 	</application>
 </manifest>

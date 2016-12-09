@@ -19,6 +19,7 @@
 	<string name="square_names">Name the Square</string>
 	<string name="settings">Settings</string>
 	<string name="square_names_settings">\"Name the Square\" Settings</string>
+        <string name="basic_knight_sight">Basic Knight Sight</string>
 	<!-- Name the Square setting stuff -->
 	<string name="clear_scores">Clear High Score</string>
 	<string name="clear_scores_title">Clearing High Scores</string>

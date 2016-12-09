@@ -1,4 +1,4 @@
-package com.jaylecavalier.chessvisionplus;
+package com.jaylecavalier.chessvisionplus.boardadapters;
 
 import android.content.Context;
 import android.view.View;
@@ -10,31 +10,67 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.jaylecavalier.chessvisionplus.R;
+import com.jaylecavalier.chessvisionplus.R;
+import com.jaylecavalier.chessvisionplus.SquareNamesActivity;
 
-public class BoardAdapter extends BaseAdapter {
+public class SquareNamesBoardAdapter extends BaseAdapter {
     private Context mContext;
 
-    public BoardAdapter(Context c) {
+    /**
+     *
+     * @param c
+     */
+    public SquareNamesBoardAdapter(Context c) {
         mContext = c;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public int getCount() {
         return mThumbIds.length;
     }
 
+    /**
+     *
+     * @param position
+     * @return
+     */
+    @Override
     public Object getItem(int position) {
         return mThumbIds[position];
     }
 
+    /**
+     *
+     * @param position
+     * @return
+     */
     public long getItemId(int position) {
         return position;
     }
 
+    /**
+     *
+     * @param position
+     * @return
+     */
     public int getImage(int position) {
         return mThumbIds[position];
     }
 
     // create a new ImageView for each item referenced by the Adapter
+
+    /**
+     *
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
         if (convertView == null) {
@@ -81,6 +117,12 @@ public class BoardAdapter extends BaseAdapter {
     // converts the integer id of a given square into that algebraic
     // coordinate, which must be given as a string since it contains
     // both letters and numbers.
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     public String itemIdToCoord(long id) {
         // 97 is "a" in ascii, so we add the offset
         // to 97 to find the appropriate ascii letter for
@@ -94,7 +136,7 @@ public class BoardAdapter extends BaseAdapter {
     }
 
     // references to the images that make up the board, in order
-    private Integer[] mThumbIds = {
+    private final Integer[] mThumbIds = {
             R.drawable.lightsquare, R.drawable.darksquare,
             R.drawable.lightsquare, R.drawable.darksquare,
             R.drawable.lightsquare, R.drawable.darksquare,

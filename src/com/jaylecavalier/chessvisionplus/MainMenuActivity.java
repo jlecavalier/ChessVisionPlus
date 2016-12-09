@@ -54,5 +54,12 @@ public class MainMenuActivity extends SherlockFragmentActivity {
 		// Start the settings menu
 		startActivity(settingsMenuActivity);
 	}
+        
+        public void startBasicKnightSight(View view) {
+            // Start an intent for the Basic Knight Sight game
+            Intent basicKnightSightActivity = new Intent(getApplicationContext(), BasicKnightSightActivity.class);
+            // start the Basic Knight Sight game
+            startActivity(basicKnightSightActivity);
+        }
 
 }

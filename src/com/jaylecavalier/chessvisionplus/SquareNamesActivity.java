@@ -34,7 +34,7 @@ import java.util.Random;
 
 // My stuff
 import com.jaylecavalier.chessvisionplus.R;
-import com.jaylecavalier.chessvisionplus.BoardAdapter;
+import com.jaylecavalier.chessvisionplus.boardadapters.SquareNamesBoardAdapter;
 
 public class SquareNamesActivity extends SherlockFragmentActivity {
 
@@ -54,8 +54,8 @@ public class SquareNamesActivity extends SherlockFragmentActivity {
 
 		// Get the gridview containing the board
 		GridView board = (GridView) findViewById(R.id.board);
-		// Set the adapter for the board to our custom BoardAdapter class
-    	board.setAdapter(new BoardAdapter(this));
+		// Set the adapter for the board to our custom SquareNamesBoardAdapter class
+    	board.setAdapter(new SquareNamesBoardAdapter(this));
         // Find and set the user's best score
         updateBestScore(this);
         // Initialize the user's current score
@@ -117,7 +117,7 @@ public class SquareNamesActivity extends SherlockFragmentActivity {
     // Selects a square for the user to tap
     public void pickSquare(GridView board) {
     	// Handle to board adapter. For access to itemIdToCoord()
-    	BoardAdapter board_adapter = (BoardAdapter) board.getAdapter();
+    	SquareNamesBoardAdapter board_adapter = (SquareNamesBoardAdapter) board.getAdapter();
     	// Pick a random square and get its' algebraic id as a string
     	String square = board_adapter.itemIdToCoord(randInt(0,63));
     	// Update what the user sees
@@ -199,7 +199,7 @@ public class SquareNamesActivity extends SherlockFragmentActivity {
 		incorrectText.setVisibility(View.GONE);
 		// Make board clickable again
 		GridView board = (GridView) findViewById(R.id.board);
-        BoardAdapter board_adapter = (BoardAdapter) board.getAdapter();
+        SquareNamesBoardAdapter board_adapter = (SquareNamesBoardAdapter) board.getAdapter();
         ImageView redsquare = (ImageView) board.getChildAt(red_pos);
         redsquare.setImageResource(board_adapter.getImage(red_pos));
 		for(int i=0; i<board.getChildCount(); i++) {
