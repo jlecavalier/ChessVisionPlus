@@ -4,8 +4,11 @@ import com.jaylecavalier.chessvisionplus.boardadapters.SquareNamesBoardAdapter;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -28,7 +31,7 @@ public class BasicKnightSightActivity extends SherlockFragmentActivity {
         // Get the gridview containing the board
         GridView board = (GridView) findViewById(R.id.board);
         // Set the adapter for the board to our custom SquareNamesBoardAdapter class
-        board.setAdapter(new BasicKnightSightBoardAdapter(this));
+        board.setAdapter(new BasicKnightSightBoardAdapter(this, null));
         Log.d("Created", "Basic Knight Sight Activity");
     }
     
@@ -50,7 +53,7 @@ public class BasicKnightSightActivity extends SherlockFragmentActivity {
         return super.onOptionsItemSelected(item);
     }
     
-    public void displayTapped(String tapped, ImageView tapped_square, int tapped_position) {
+    public void displayTapped(String tapped, View tapped_square, int tapped_position) {
         // handle to "tapped" text
         TextView tappedView = (TextView) findViewById(R.id.tapped);
         // Set the text to the square the user tapped

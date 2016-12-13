@@ -7,6 +7,7 @@ package com.jaylecavalier.chessvisionplus.boardadapters;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,14 +20,24 @@ import com.jaylecavalier.chessvisionplus.R;
  * @author jay
  */
 public class BasicKnightSightBoardAdapter extends BaseAdapter {
-    private Context mContext;
+    private final Context mContext;
+    private final LayoutInflater mInflater;
+    private String[] pieces;
+    
+    static class ViewHolder {
+        public ImageView square;
+        public ImageView piece;
+    }
 
     /**
      *
      * @param c
+     * @param newPieces
      */
-    public BasicKnightSightBoardAdapter(Context c) {
+    public BasicKnightSightBoardAdapter(Context c, String[] newPieces) {
         mContext = c;
+        mInflater = LayoutInflater.from(c);
+        pieces = newPieces;
     }
 
     /**
@@ -77,21 +88,32 @@ public class BasicKnightSightBoardAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        View squareView;
+        // check whether view is recycled or not
         if (convertView == null) {
+            
+            // Inflate the squareView to the square layout so
+            // we can have both a background and a piece.
+            squareView = mInflater.inflate(R.layout.square, null);
+            
+            // Now, initialize some attributes
+            ViewHolder viewHolder = new ViewHolder();
+            viewHolder.square = (ImageView) squareView.findViewById(R.id.square_background);
+            viewHolder.piece = (ImageView) squareView.findViewById(R.id.piece);
+            viewHolder.square.setImageResource(mThumbIds[position]);
+            viewHolder.square.setScaleType(ImageView.ScaleType.FIT_XY);
+            viewHolder.square.setAdjustViewBounds(true);
+            viewHolder.piece.setImageResource(R.drawable.whiteknight);
+            viewHolder.piece.setScaleType(ImageView.ScaleType.FIT_XY);
+            viewHolder.piece.setAdjustViewBounds(true);
 
             // These need to be final in order for us to use them
             // with our new OnClickListener we will potentially create
             final int f_position = position;
+            final View f_squareView = squareView;
 
-            // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setAdjustViewBounds(true);
-
-            final ImageView f_imageView = imageView;
-
-            imageView.setOnClickListener(new View.OnClickListener() {
+            // Set the OnClick Listener for the square
+            squareView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // If we are in the default activity
@@ -100,19 +122,17 @@ public class BasicKnightSightBoardAdapter extends BaseAdapter {
                         // name of the square as a string
                         String coord = itemIdToCoord(getItemId(f_position));
                         // Tell the user whether or not she guessed correctly
-                        ((BasicKnightSightActivity) mContext).displayTapped(coord, f_imageView, f_position);
+                        ((BasicKnightSightActivity) mContext).displayTapped(coord, f_squareView, f_position);
                     }
                 }
             });
 
         // If it is recycled, then just use the view we've already created
         } else {
-            imageView = (ImageView) convertView;
+            squareView = (View) convertView;
         }
-
-        // Get the correct square image
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        
+        return squareView;
     }
 
     // The items in our adapter are the squares of the board, and
